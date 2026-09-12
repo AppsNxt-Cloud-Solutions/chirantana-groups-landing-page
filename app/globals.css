@@ -1,1 +1,415 @@
 @import "tailwindcss";
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   CHIRANTANA GROUP — DESIGN TOKENS
+   One @theme block. If a colour isn't here, it doesn't ship.
+
+   Direction: ivory paper, warm obsidian chrome, a single muted brass at group
+   level. Colour arrives only through a vertical's accent, and every accent
+   sits at matched OKLCH lightness + chroma so no hue shouts louder than another.
+
+   Every contrast ratio in the comments was measured, not estimated.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+@theme {
+  /* ── Obsidian — warm near-black neutrals ─────────────────────────────── */
+  --color-obsidian-950: #0d0b0a;
+  --color-obsidian-900: #14110f; /* the dark canvas */
+  --color-obsidian-800: #1f1b18; /* 16.3:1 on ivory-50 */
+  --color-obsidian-700: #2e2925; /* 13.7:1 */
+  --color-obsidian-600: #453e38; /* 10.0:1 */
+  --color-obsidian-500: #635a52; /*  6.4:1 — secondary body text */
+  --color-obsidian-400: #8a7f75; /*  4.8:1 on obsidian-900 */
+  --color-obsidian-300: #b3a89d; /*  8.1:1 on obsidian-900 */
+  --color-obsidian-200: #d6cdc3; /* 12.0:1 on obsidian-900 */
+  --color-obsidian-100: #ebe5dd;
+
+  /* ── Ivory — the paper the site is printed on ────────────────────────── */
+  --color-ivory-50: #fbf9f5;
+  --color-ivory-100: #f4f0e9;
+  --color-ivory-200: #e8e2d7;
+  --color-ivory-300: #dcd4c6;
+
+  /* ── Brass — the one group metallic. Hairlines, eyebrows, rules. ─────── */
+  --color-brass-700: #6b4f2a; /* 7.2:1 on ivory — text-safe (AAA) */
+  --color-brass-600: #8a6a3a; /* 4.8:1 on ivory — text-safe (AA) */
+  --color-brass-500: #b08d55; /* 2.9:1 — FILL / BORDER ONLY, never text on light */
+  --color-brass-400: #c9a978; /* 8.4:1 on obsidian-900 */
+  --color-brass-300: #dcc59c; /* 11.2:1 on obsidian-900 */
+  --color-brass-200: #ecdcc2;
+  --color-brass-100: #f7eedf;
+
+  /* ── Vertical accents ────────────────────────────────────────────────────
+     Five hues at identical OKLCH L/C per step:
+       100 L.955 C.022 | 200 L.915 C.036 | 300 L.820 C.058 | 400 L.720 C.072
+       500 L.615 C.078 | 600 L.515 C.075 | 700 L.425 C.062
+     Every -600 is 5.2–5.5:1 on ivory (AA). Every -700 is 7.7–8.1:1 (AAA).
+     Every -400 is 7.4–7.8:1 on obsidian-900; every -300 is 10.6–11.0:1.
+     ──────────────────────────────────────────────────────────────────────── */
+
+  /* Chirantana Foundation — ember, hue 38 */
+  --color-ember-100: #feece6;
+  --color-ember-200: #fadbd2;
+  --color-ember-300: #e7b8a9;
+  --color-ember-400: #cd9584;
+  --color-ember-500: #ae7462;
+  --color-ember-600: #8d5848;
+  --color-ember-700: #6c4235;
+
+  /* Chirantana Naturals — moss, hue 152 */
+  --color-moss-100: #e6f5e9;
+  --color-moss-200: #d2ead7;
+  --color-moss-300: #a9cfb2;
+  --color-moss-400: #83b28f;
+  --color-moss-500: #60926d;
+  --color-moss-600: #457452;
+  --color-moss-700: #33583d;
+
+  /* Chirantana Swadeshi Bhandara — saffron, hue 92 */
+  --color-saffron-100: #f5f0e0;
+  --color-saffron-200: #ebe3c9;
+  --color-saffron-300: #d1c49a;
+  --color-saffron-400: #b5a470;
+  --color-saffron-500: #95834c;
+  --color-saffron-600: #776631;
+  --color-saffron-700: #5b4d24;
+
+  /* SV Lots India — slate, hue 215 */
+  --color-slate-100: #e0f4f9;
+  --color-slate-200: #c9eaf2;
+  --color-slate-300: #99cedc;
+  --color-slate-400: #6db0c1;
+  --color-slate-500: #4691a2;
+  --color-slate-600: #297282;
+  --color-slate-700: #1d5764;
+
+  /* Karoli Konnect — indigo, hue 292 */
+  --color-indigo-100: #f0eefe;
+  --color-indigo-200: #e3dffa;
+  --color-indigo-300: #c4bee7;
+  --color-indigo-400: #a59dcf;
+  --color-indigo-500: #857cb0;
+  --color-indigo-600: #685f8f;
+  --color-indigo-700: #4f486e;
+
+  /* ── Surfaces ────────────────────────────────────────────────────────────── */
+  --color-surface: #fbf9f5;
+  --color-surface-alt: #f4f0e9;
+  --color-surface-dark: #14110f;
+  --color-surface-void: #0d0b0a;
+
+  /* ── Typography ──────────────────────────────────────────────────────────── */
+  --font-display: var(--font-fraunces), Georgia, "Times New Roman", serif;
+  --font-sans: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+
+  /* Fluid scale. Every size in rem, clamped. No px font sizes anywhere. */
+  --text-2xs: 0.6875rem;
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: clamp(1.0625rem, 0.35vw + 0.98rem, 1.1875rem);
+  --text-xl: clamp(1.1875rem, 0.55vw + 1.06rem, 1.4375rem);
+  --text-2xl: clamp(1.375rem, 1.1vw + 1.13rem, 1.875rem);
+  --text-3xl: clamp(1.625rem, 1.8vw + 1.21rem, 2.5rem);
+  --text-4xl: clamp(2rem, 3vw + 1.32rem, 3.375rem);
+  --text-5xl: clamp(2.375rem, 4.6vw + 1.32rem, 4.5rem);
+  --text-6xl: clamp(2.75rem, 6.4vw + 1.3rem, 6rem);
+  --text-7xl: clamp(3rem, 8.2vw + 1.15rem, 7.5rem);
+  --text-8xl: clamp(3.25rem, 10.5vw + 0.9rem, 9.5rem);
+
+  --tracking-tightest: -0.035em;
+  --tracking-tighter: -0.022em;
+  --tracking-tight: -0.012em;
+  --tracking-wide: 0.06em;
+  --tracking-widest: 0.24em;
+
+  --leading-display: 0.98;
+  --leading-tight: 1.12;
+  --leading-body: 1.68;
+
+  /* ── Motion ──────────────────────────────────────────────────────────────── */
+  --ease-brand: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-entrance: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-exit: cubic-bezier(0.7, 0, 0.84, 0);
+  --ease-drift: cubic-bezier(0.45, 0, 0.55, 1);
+
+  --animate-marquee: marquee 48s linear infinite;
+  --animate-spin-slow: spin 14s linear infinite;
+  --animate-pulse-soft: pulse-soft 3.2s var(--ease-drift) infinite;
+
+  @keyframes marquee {
+    from {
+      transform: translate3d(0, 0, 0);
+    }
+    to {
+      transform: translate3d(-50%, 0, 0);
+    }
+  }
+  @keyframes pulse-soft {
+    0%,
+    100% {
+      opacity: 0.35;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.6);
+    }
+  }
+
+  /* ── Radii — premium reads sharper than a 12px card ──────────────────────── */
+  --radius-xs: 0.25rem;
+  --radius-card: 0.375rem;
+  --radius-panel: 1rem;
+  --radius-pill: 999px;
+
+  /* ── Shadows — warm-tinted, very diffuse ─────────────────────────────────── */
+  --shadow-hairline: inset 0 0 0 1px rgb(20 17 15 / 0.07);
+  --shadow-soft: 0 1px 2px rgb(20 17 15 / 0.04), 0 12px 32px -16px rgb(20 17 15 / 0.14);
+  --shadow-lift: 0 2px 6px rgb(20 17 15 / 0.05), 0 32px 64px -28px rgb(20 17 15 / 0.28);
+}
+
+/* ── Scoped accent aliases ──────────────────────────────────────────────────
+   Components write `text-accent-600`, `border-accent-500`, `bg-accent-100`
+   and never name a vertical. MUST be `@theme inline`: a plain @theme would
+   substitute var(--v-*) once at :root and every descendant would inherit the
+   computed brass. Inline makes the utility itself read var(--v-*), so it
+   resolves at the element, inside whatever [data-accent] scope it sits in.
+   In raw CSS and arbitrary values, reference --v-* directly for the same reason.
+   ─────────────────────────────────────────────────────────────────────────── */
+@theme inline {
+  --color-accent-100: var(--v-100);
+  --color-accent-200: var(--v-200);
+  --color-accent-300: var(--v-300);
+  --color-accent-400: var(--v-400);
+  --color-accent-500: var(--v-500);
+  --color-accent-600: var(--v-600);
+  --color-accent-700: var(--v-700);
+
+  --shadow-glow: 0 0 0 1px var(--v-200), 0 18px 50px -20px var(--v-500);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   ACCENT SCOPING
+   The group default is brass. A vertical's surfaces rebind the --v-* vars.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+@layer base {
+  :root {
+    --v-100: var(--color-brass-100);
+    --v-200: var(--color-brass-200);
+    --v-300: var(--color-brass-300);
+    --v-400: var(--color-brass-400);
+    --v-500: var(--color-brass-500);
+    --v-600: var(--color-brass-600);
+    --v-700: var(--color-brass-700);
+  }
+
+  [data-accent="ember"] {
+    --v-100: var(--color-ember-100);
+    --v-200: var(--color-ember-200);
+    --v-300: var(--color-ember-300);
+    --v-400: var(--color-ember-400);
+    --v-500: var(--color-ember-500);
+    --v-600: var(--color-ember-600);
+    --v-700: var(--color-ember-700);
+  }
+  [data-accent="moss"] {
+    --v-100: var(--color-moss-100);
+    --v-200: var(--color-moss-200);
+    --v-300: var(--color-moss-300);
+    --v-400: var(--color-moss-400);
+    --v-500: var(--color-moss-500);
+    --v-600: var(--color-moss-600);
+    --v-700: var(--color-moss-700);
+  }
+  [data-accent="saffron"] {
+    --v-100: var(--color-saffron-100);
+    --v-200: var(--color-saffron-200);
+    --v-300: var(--color-saffron-300);
+    --v-400: var(--color-saffron-400);
+    --v-500: var(--color-saffron-500);
+    --v-600: var(--color-saffron-600);
+    --v-700: var(--color-saffron-700);
+  }
+  [data-accent="slate"] {
+    --v-100: var(--color-slate-100);
+    --v-200: var(--color-slate-200);
+    --v-300: var(--color-slate-300);
+    --v-400: var(--color-slate-400);
+    --v-500: var(--color-slate-500);
+    --v-600: var(--color-slate-600);
+    --v-700: var(--color-slate-700);
+  }
+  [data-accent="indigo"] {
+    --v-100: var(--color-indigo-100);
+    --v-200: var(--color-indigo-200);
+    --v-300: var(--color-indigo-300);
+    --v-400: var(--color-indigo-400);
+    --v-500: var(--color-indigo-500);
+    --v-600: var(--color-indigo-600);
+    --v-700: var(--color-indigo-700);
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   BASE
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+@layer base {
+  * {
+    min-width: 0;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    /* Deliberately no `scroll-behavior: smooth` — Lenis owns scrolling, and
+       Next 16 no longer overrides this during navigation. */
+  }
+
+  body {
+    background-color: var(--color-surface);
+    color: var(--color-obsidian-700);
+    font-family: var(--font-sans);
+    font-size: var(--text-base);
+    line-height: var(--leading-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    line-height: var(--leading-tight);
+    letter-spacing: var(--tracking-tight);
+    color: var(--color-obsidian-900);
+    text-wrap: balance;
+  }
+
+  h1,
+  h2 {
+    line-height: var(--leading-display);
+    letter-spacing: var(--tracking-tighter);
+    font-variation-settings:
+      "opsz" 96,
+      "SOFT" 30,
+      "WONK" 1;
+  }
+
+  h3,
+  h4 {
+    font-variation-settings:
+      "opsz" 36,
+      "SOFT" 0,
+      "WONK" 0;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--v-600);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  ::selection {
+    background-color: var(--v-200);
+    color: var(--color-obsidian-900);
+  }
+
+  /* Anchor targets clear the sticky header instead of hiding under it. */
+  [id] {
+    scroll-margin-top: 6rem;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   UTILITIES
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+@utility container-page {
+  width: 100%;
+  max-width: 84rem;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+
+  @media (width >= 48rem) {
+    padding-inline: 2rem;
+  }
+  @media (width >= 80rem) {
+    padding-inline: 2.5rem;
+  }
+}
+
+/* Accent hairline used under eyebrows and as card rules. */
+@utility rule-accent {
+  background: linear-gradient(
+    to right,
+    var(--v-500),
+    color-mix(in oklab, var(--v-500) 15%, transparent)
+  );
+}
+
+@utility hairline {
+  box-shadow: var(--shadow-hairline);
+}
+
+@utility text-balance-tight {
+  text-wrap: balance;
+  letter-spacing: var(--tracking-tighter);
+}
+
+/* Display type with the full Fraunces optical treatment — for hero headlines. */
+@utility display-soft {
+  font-variation-settings:
+    "opsz" 144,
+    "SOFT" 60,
+    "WONK" 1;
+}
+
+/* Fade the ends of a horizontal marquee. */
+@utility edge-fade {
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 12%,
+    black 88%,
+    transparent
+  );
+}
+
+/* Film grain overlay — pure CSS, no image request. */
+@utility grain {
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.22;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   REDUCED MOTION — everything here can be stilled.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
