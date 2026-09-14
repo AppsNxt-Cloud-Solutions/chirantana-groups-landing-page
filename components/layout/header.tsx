@@ -87,14 +87,14 @@ function NavLink({
       aria-current={active ? "page" : undefined}
       className={cn(
         "relative rounded-pill px-3.5 py-2 text-sm font-medium transition-colors duration-300",
-        active ? "text-brass-300" : "text-obsidian-200 hover:text-ivory-50",
+        active ? "text-peacock-300" : "text-obsidian-200 hover:text-ivory-50",
       )}
     >
       {children}
       {active && (
         <span
           aria-hidden="true"
-          className="absolute inset-x-3.5 -bottom-0.5 h-px bg-brass-400"
+          className="absolute inset-x-3.5 -bottom-0.5 h-px bg-marigold-300"
         />
       )}
     </Link>
@@ -134,7 +134,7 @@ function VerticalsMenu({ pathname }: { pathname: string }) {
         onClick={() => setOpen((v) => !v)}
         className={cn(
           "flex items-center gap-1.5 rounded-pill px-3.5 py-2 text-sm font-medium transition-colors duration-300",
-          active || open ? "text-brass-300" : "text-obsidian-200 hover:text-ivory-50",
+          active || open ? "text-peacock-300" : "text-obsidian-200 hover:text-ivory-50",
         )}
       >
         Verticals
@@ -180,7 +180,7 @@ function VerticalsMenu({ pathname }: { pathname: string }) {
         <Link
           href="/verticals"
           onClick={() => setOpen(false)}
-          className="mt-1 block border-t border-ivory-50/10 px-3 pt-3 pb-2 text-xs font-medium tracking-wide text-brass-300 uppercase transition-colors hover:text-ivory-50"
+          className="mt-1 block border-t border-ivory-50/10 px-3 pt-3 pb-2 text-xs font-medium tracking-wide text-peacock-300 uppercase transition-colors hover:text-ivory-50"
         >
           All five verticals →
         </Link>

@@ -45,8 +45,9 @@ feature needs one of those, stop and ask before adding it.
   `[data-accent]` attribute set by `<Section accent>` or the vertical page root. Tailwind
   v4 has no safelist and generates no dynamic class names — this is why. The aliases live
   in a **`@theme inline`** block: a plain `@theme` would substitute `var(--v-*)` once at
-  `:root` and every descendant would inherit brass. In raw CSS and `bg-[...]` arbitrary
-  values, reference `var(--v-500)` directly, never `var(--color-accent-500)`.
+  `:root` and every descendant would inherit the group peacock. In raw CSS and
+  `bg-[...]` arbitrary values, reference `var(--v-500)` directly, never
+  `var(--color-accent-500)`.
 - **Motion:** use the primitives in `components/motion/`. They all honour
   `prefers-reduced-motion`. Anything that mounts at `opacity: 0` must carry
   `data-motion="reveal"` so the no-JS / failed-hydration fallback in `app/layout.tsx` can

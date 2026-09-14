@@ -8,8 +8,8 @@ export function pageOgImage({
   eyebrow,
   title,
   footerRight,
-  accent = "#c9a978",
-  accentDeep = "#6b4f2a",
+  accent = "#64bdc2",
+  accentDeep = "#0a5e62",
 }: {
   eyebrow: string;
   title: string;

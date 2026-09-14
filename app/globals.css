@@ -4,8 +4,10 @@
    CHIRANTANA GROUP — DESIGN TOKENS
    One @theme block. If a colour isn't here, it doesn't ship.
 
-   Direction: ivory paper, warm obsidian chrome, a single muted brass at group
-   level. Colour arrives only through a vertical's accent, and every accent
+   Direction: ivory paper, warm obsidian chrome, and the mark's own palette at
+   group level — the peacock disc as the primary, the lotus magenta as the one
+   note of emphasis, the marigold of the seated figure as a highlight on dark.
+   Colour otherwise arrives only through a vertical's accent, and every accent
    sits at matched OKLCH lightness + chroma so no hue shouts louder than another.
 
    Every contrast ratio in the comments was measured, not estimated.
@@ -30,14 +32,37 @@
   --color-ivory-200: #e8e2d7;
   --color-ivory-300: #dcd4c6;
 
-  /* ── Brass — the one group metallic. Hairlines, eyebrows, rules. ─────── */
-  --color-brass-700: #6b4f2a; /* 7.2:1 on ivory — text-safe (AAA) */
-  --color-brass-600: #8a6a3a; /* 4.8:1 on ivory — text-safe (AA) */
-  --color-brass-500: #b08d55; /* 2.9:1 — FILL / BORDER ONLY, never text on light */
-  --color-brass-400: #c9a978; /* 8.4:1 on obsidian-900 */
-  --color-brass-300: #dcc59c; /* 11.2:1 on obsidian-900 */
-  --color-brass-200: #ecdcc2;
-  --color-brass-100: #f7eedf;
+  /* ── Peacock — the mark's turquoise disc, and the group's primary. ────────
+     Hue 200 at the lightness ladder the brass it replaced was built on, so
+     every contrast role below carries over unchanged. The -400 is the disc
+     colour itself (#5cb9be sampled from the logo, nudged onto the ladder).
+     ──────────────────────────────────────────────────────────────────────── */
+  --color-peacock-700: #0a5e62; /* 7.2:1 on ivory — text-safe (AAA) */
+  --color-peacock-600: #1b7b80; /* 4.8:1 on ivory — text-safe (AA) */
+  --color-peacock-500: #43a4a9; /* 2.8:1 — FILL / BORDER ONLY, never text on light */
+  --color-peacock-400: #64bdc2; /* 8.6:1 on obsidian-900 — the logo disc */
+  --color-peacock-300: #91d7da; /* 11.6:1 on obsidian-900 */
+  --color-peacock-200: #bae9eb;
+  --color-peacock-100: #dbf5f7;
+
+  /* ── Lotus — the mark's petals. The one note of emphasis, used sparingly:
+     the closing line, and nothing that repeats. Hue 341, chroma tempered from
+     the logo's #a22a81 so it sits beside the muted accents without shouting. */
+  --color-lotus-700: #7e3166; /* 7.9:1 on ivory — text-safe (AAA) */
+  --color-lotus-600: #a14083; /* 5.6:1 on ivory — text-safe (AA) */
+  --color-lotus-500: #c467a5; /* 3.4:1 — FILL / BORDER ONLY */
+  --color-lotus-400: #de92c3; /* 8.1:1 on obsidian-900 */
+  --color-lotus-300: #f0b5da; /* 11.0:1 on obsidian-900 */
+  --color-lotus-200: #f9d3ea;
+  --color-lotus-100: #fee8f5;
+
+  /* ── Marigold — the seated figure at the centre of the mark. The figure is
+     the smallest shape in the logo and this is its smallest role: the single
+     bright point that marks the current page. Highlights on dark only —
+     every step here fails as text on ivory, by design. ───────────────────── */
+  --color-marigold-400: #d2c951; /* 10.9:1 on obsidian-900 */
+  --color-marigold-300: #e9df5f; /* 13.6:1 on obsidian-900 */
+  --color-marigold-200: #fcf271; /* 16.2:1 on obsidian-900 */
 
   /* ── Vertical accents ────────────────────────────────────────────────────
      Five hues at identical OKLCH L/C per step:
@@ -173,7 +198,7 @@
    Components write `text-accent-600`, `border-accent-500`, `bg-accent-100`
    and never name a vertical. MUST be `@theme inline`: a plain @theme would
    substitute var(--v-*) once at :root and every descendant would inherit the
-   computed brass. Inline makes the utility itself read var(--v-*), so it
+   computed peacock. Inline makes the utility itself read var(--v-*), so it
    resolves at the element, inside whatever [data-accent] scope it sits in.
    In raw CSS and arbitrary values, reference --v-* directly for the same reason.
    ─────────────────────────────────────────────────────────────────────────── */
@@ -191,18 +216,18 @@
 
 /* ═══════════════════════════════════════════════════════════════════════════
    ACCENT SCOPING
-   The group default is brass. A vertical's surfaces rebind the --v-* vars.
+   The group default is peacock. A vertical's surfaces rebind the --v-* vars.
    ═══════════════════════════════════════════════════════════════════════════ */
 
 @layer base {
   :root {
-    --v-100: var(--color-brass-100);
-    --v-200: var(--color-brass-200);
-    --v-300: var(--color-brass-300);
-    --v-400: var(--color-brass-400);
-    --v-500: var(--color-brass-500);
-    --v-600: var(--color-brass-600);
-    --v-700: var(--color-brass-700);
+    --v-100: var(--color-peacock-100);
+    --v-200: var(--color-peacock-200);
+    --v-300: var(--color-peacock-300);
+    --v-400: var(--color-peacock-400);
+    --v-500: var(--color-peacock-500);
+    --v-600: var(--color-peacock-600);
+    --v-700: var(--color-peacock-700);
   }
 
   [data-accent="ember"] {

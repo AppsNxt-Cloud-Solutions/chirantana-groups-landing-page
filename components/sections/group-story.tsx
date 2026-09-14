@@ -27,7 +27,7 @@ export function GroupStory() {
               <p
                 className={
                   i === 0
-                    ? "font-display text-2xl leading-snug text-obsidian-900 first-letter:float-left first-letter:mr-3 first-letter:text-7xl first-letter:leading-[0.8] first-letter:text-brass-600"
+                    ? "font-display text-2xl leading-snug text-obsidian-900 first-letter:float-left first-letter:mr-3 first-letter:text-7xl first-letter:leading-[0.8] first-letter:text-peacock-600"
                     : "text-lg leading-relaxed text-obsidian-600"
                 }
               >

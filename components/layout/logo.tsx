@@ -1,12 +1,15 @@
+import Image from "next/image";
 import Link from "next/link";
+import mark from "@/assets/images/brand/logo-mark.png";
 import { site } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 /**
- * Header lockup: an inline-SVG monogram and the wordmark as live type.
- * No image request, scales cleanly, readable to crawlers.
+ * Header lockup: the Chirantana mark beside the wordmark as live type.
  *
- * TODO(client): replace the monogram paths with the real mark when supplied.
+ * The mark is a transparent disc cut from the supplied artwork, so it sits on
+ * the obsidian header and on ivory without a plate behind it. It is decorative
+ * here — the link already carries an accessible name — hence alt="".
  */
 export function Logo({
   className,
@@ -18,42 +21,32 @@ export function Logo({
   return (
     <Link
       href="/"
-      className={cn("group flex items-center gap-3", className)}
+      className={cn("group flex items-center gap-3 sm:gap-3.5", className)}
       aria-label={`${site.name} — home`}
     >
-      <svg
-        viewBox="0 0 40 40"
+      <span
         aria-hidden="true"
-        className="size-10 transition-transform duration-500 ease-brand group-hover:rotate-6"
+        className={cn(
+          "relative block size-11 shrink-0 rounded-full transition-transform duration-500 ease-brand group-hover:scale-105 sm:size-12",
+          // A hairline ring carries the mark's own ring onto both grounds.
+          onDark ? "ring-1 ring-ivory-50/15" : "ring-1 ring-obsidian-900/10",
+        )}
       >
-        <circle
-          cx="20"
-          cy="20"
-          r="18"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1"
-          className={onDark ? "text-brass-400" : "text-brass-600"}
+        <Image
+          src={mark}
+          alt=""
+          width={48}
+          height={48}
+          priority
+          sizes="48px"
+          className="size-full rounded-full object-contain"
         />
-        <path
-          d="M26.5 14.2A8.4 8.4 0 0 0 20 11.5c-4.7 0-8.5 3.8-8.5 8.5s3.8 8.5 8.5 8.5a8.4 8.4 0 0 0 6.5-2.7"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1.6"
-          strokeLinecap="round"
-          className={onDark ? "text-ivory-50" : "text-obsidian-900"}
-        />
-        <circle
-          cx="27.5"
-          cy="20"
-          r="1.4"
-          className={onDark ? "fill-brass-400" : "fill-brass-600"}
-        />
-      </svg>
+      </span>
+
       <span className="flex flex-col leading-none">
         <span
           className={cn(
-            "font-display text-lg tracking-[0.08em] sm:text-xl",
+            "font-display text-xl tracking-[0.05em] sm:text-2xl",
             onDark ? "text-ivory-50" : "text-obsidian-900",
           )}
         >
@@ -61,8 +54,8 @@ export function Logo({
         </span>
         <span
           className={cn(
-            "mt-1 text-[0.5625rem] font-medium tracking-widest uppercase",
-            onDark ? "text-brass-400" : "text-brass-600",
+            "mt-1.5 text-2xs font-medium tracking-widest uppercase sm:text-xs",
+            onDark ? "text-peacock-300" : "text-peacock-700",
           )}
         >
           Group

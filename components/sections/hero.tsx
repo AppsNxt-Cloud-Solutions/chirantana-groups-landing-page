@@ -12,7 +12,7 @@ import { verticals } from "@/content/verticals";
 export function Hero() {
   return (
     <section className="grain relative flex min-h-[100svh] flex-col justify-end overflow-hidden bg-obsidian-900 text-ivory-50">
-      <ShaderField preset="aurora" accent="brass" />
+      <ShaderField preset="aurora" accent="peacock" />
 
       <div className="container-page relative z-10 flex flex-1 flex-col justify-center pt-32 pb-16 md:pt-40">
         <Reveal direction="none" duration={0.9}>
@@ -26,7 +26,7 @@ export function Hero() {
           as="h1"
           mask={false}
           accentWords={hero.accentWords}
-          accentClass="text-brass-300"
+          accentClass="text-peacock-300"
           className="display-soft mt-8 max-w-5xl text-7xl text-ivory-50"
         />
 
@@ -41,7 +41,7 @@ export function Hero() {
             <ButtonLink
               href="/verticals"
               size="lg"
-              className="bg-ivory-50 text-obsidian-900 hover:bg-brass-300"
+              className="bg-ivory-50 text-obsidian-900 hover:bg-peacock-300"
             >
               Explore the five verticals
             </ButtonLink>

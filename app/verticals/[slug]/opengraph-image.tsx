@@ -9,7 +9,7 @@ export const alt = "Chirantana Group";
 export default async function Image({ params }: PageProps<"/verticals/[slug]">) {
   const { slug } = await params;
   const vertical = getVertical(slug);
-  const hex = accentHex[vertical?.accent ?? "brass"];
+  const hex = accentHex[vertical?.accent ?? "peacock"];
   return pageOgImage({
     eyebrow: vertical?.sector ?? "Chirantana Group",
     title: vertical?.name ?? "Chirantana Group",

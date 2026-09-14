@@ -44,8 +44,8 @@ function ValueWord({ children, large }: { children: string; large?: boolean }) {
         aria-hidden="true"
         className={
           large
-            ? "size-2.5 rounded-full bg-brass-400"
-            : "size-1.5 rounded-full bg-brass-500/60"
+            ? "size-2.5 rounded-full bg-peacock-400"
+            : "size-1.5 rounded-full bg-peacock-500/60"
         }
       />
     </span>

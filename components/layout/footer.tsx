@@ -1,5 +1,7 @@
 import { Mail, MapPin, Phone } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
+import mark from "@/assets/images/brand/logo-mark.png";
 import { verticals } from "@/content/verticals";
 import { footerNav, formattedAddress, site, telHref, whatsappHref } from "@/lib/site";
 
@@ -8,8 +10,18 @@ export function Footer() {
     <footer className="grain bg-obsidian-950 text-obsidian-300">
       <div className="container-page relative grid gap-12 py-16 md:py-20 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr] lg:gap-10">
         <div>
-          <p className="font-display text-2xl text-ivory-50">{site.name}</p>
-          <p className="mt-3 max-w-sm text-sm leading-relaxed text-obsidian-400">
+          <div className="flex items-center gap-4">
+            <Image
+              src={mark}
+              alt=""
+              width={56}
+              height={56}
+              sizes="56px"
+              className="size-14 shrink-0 rounded-full ring-1 ring-ivory-50/15"
+            />
+            <p className="font-display text-3xl text-ivory-50">{site.name}</p>
+          </div>
+          <p className="mt-5 max-w-sm text-sm leading-relaxed text-obsidian-400">
             {site.description}
           </p>
         </div>
@@ -56,7 +68,7 @@ export function Footer() {
             <li className="flex gap-3">
               <MapPin
                 aria-hidden="true"
-                className="mt-0.5 size-4 shrink-0 text-brass-500"
+                className="mt-0.5 size-4 shrink-0 text-peacock-500"
               />
               <a
                 href={site.mapsUrl}
@@ -70,7 +82,7 @@ export function Footer() {
             <li className="flex gap-3">
               <Mail
                 aria-hidden="true"
-                className="mt-0.5 size-4 shrink-0 text-brass-500"
+                className="mt-0.5 size-4 shrink-0 text-peacock-500"
               />
               <a
                 href={`mailto:${site.email}`}
@@ -82,7 +94,7 @@ export function Footer() {
             <li className="flex gap-3">
               <Phone
                 aria-hidden="true"
-                className="mt-0.5 size-4 shrink-0 text-brass-500"
+                className="mt-0.5 size-4 shrink-0 text-peacock-500"
               />
               <span className="flex flex-col">
                 <a
@@ -95,7 +107,7 @@ export function Footer() {
                   href={whatsappHref}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex min-h-11 items-center text-xs text-obsidian-400 transition-colors hover:text-brass-300"
+                  className="inline-flex min-h-11 items-center text-xs text-obsidian-400 transition-colors hover:text-peacock-300"
                 >
                   Message on WhatsApp
                 </a>
@@ -128,7 +140,7 @@ export function Footer() {
 
 function FooterHeading({ children }: { children: React.ReactNode }) {
   return (
-    <h2 className="font-sans text-xs font-medium tracking-widest text-brass-400 uppercase">
+    <h2 className="font-sans text-xs font-medium tracking-widest text-peacock-400 uppercase">
       {children}
     </h2>
   );

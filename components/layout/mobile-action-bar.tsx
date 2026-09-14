@@ -25,7 +25,7 @@ export function MobileActionBar() {
           className="flex flex-col items-center gap-1 py-3 text-ivory-50 transition-colors active:bg-ivory-50/10"
           aria-label={`Call ${contact.phone.display}`}
         >
-          <Phone aria-hidden="true" className="size-4 text-brass-400" />
+          <Phone aria-hidden="true" className="size-4 text-peacock-400" />
           <span className="text-2xs font-semibold tracking-[0.12em] uppercase">Call</span>
         </a>
         <a
@@ -34,7 +34,7 @@ export function MobileActionBar() {
           rel="noopener noreferrer"
           className="flex flex-col items-center gap-1 py-3 text-ivory-50 transition-colors active:bg-ivory-50/10"
         >
-          <MessageCircle aria-hidden="true" className="size-4 text-brass-400" />
+          <MessageCircle aria-hidden="true" className="size-4 text-peacock-400" />
           <span className="text-2xs font-semibold tracking-[0.12em] uppercase">
             WhatsApp
           </span>
@@ -43,7 +43,7 @@ export function MobileActionBar() {
           href={`mailto:${contact.email}`}
           className="flex flex-col items-center gap-1 py-3 text-ivory-50 transition-colors active:bg-ivory-50/10"
         >
-          <Mail aria-hidden="true" className="size-4 text-brass-400" />
+          <Mail aria-hidden="true" className="size-4 text-peacock-400" />
           <span className="text-2xs font-semibold tracking-[0.12em] uppercase">
             Email
           </span>

@@ -15,8 +15,8 @@ const ShaderCanvas = dynamic(
 
 export type ShaderFieldProps = {
   preset?: "aurora" | "veil";
-  /** Which accent tints the field. Defaults to the group brass. */
-  accent?: AccentKey | "brass";
+  /** Which accent tints the field. Defaults to the group peacock. */
+  accent?: AccentKey | "peacock";
   intensity?: number;
   className?: string;
 };
@@ -29,7 +29,7 @@ export type ShaderFieldProps = {
  */
 export function ShaderField({
   preset = "aurora",
-  accent = "brass",
+  accent = "peacock",
   intensity = 1,
   className,
 }: ShaderFieldProps) {
@@ -60,7 +60,7 @@ export function ShaderField({
   return (
     <div
       aria-hidden="true"
-      data-accent={accent === "brass" ? undefined : accent}
+      data-accent={accent === "peacock" ? undefined : accent}
       className={cn("pointer-events-none absolute inset-0 overflow-hidden", className)}
     >
       <div className="absolute inset-0 bg-obsidian-900" />

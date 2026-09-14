@@ -534,8 +534,8 @@ export function otherVerticals(slug: string): Vertical[] {
  * images (which cannot read CSS) and the shader (which must not read CSS).
  * Keep in sync with the @theme block.
  */
-export const accentHex: Record<AccentKey | "brass", Record<300 | 500 | 700, string>> = {
-  brass: { 300: "#dcc59c", 500: "#b08d55", 700: "#6b4f2a" },
+export const accentHex: Record<AccentKey | "peacock", Record<300 | 500 | 700, string>> = {
+  peacock: { 300: "#91d7da", 500: "#43a4a9", 700: "#0a5e62" },
   ember: { 300: "#e7b8a9", 500: "#ae7462", 700: "#6c4235" },
   moss: { 300: "#a9cfb2", 500: "#60926d", 700: "#33583d" },
   saffron: { 300: "#d1c49a", 500: "#95834c", 700: "#5b4d24" },
