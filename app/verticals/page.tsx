@@ -20,7 +20,7 @@ export default function VerticalsPage() {
       <section className="grain relative overflow-hidden bg-obsidian-900 text-ivory-50">
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 bg-[radial-gradient(120%_90%_at_18%_8%,var(--color-brass-700),transparent_62%)] opacity-60"
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(120%_90%_at_18%_8%,var(--color-peacock-700),transparent_62%)] opacity-60"
         />
         <Container className="relative pt-32 pb-16 md:pt-40 md:pb-24">
           <Reveal direction="none">
@@ -30,7 +30,7 @@ export default function VerticalsPage() {
             text="Five verticals. One connected purpose."
             mask={false}
             accentWords={[3, 4]}
-            accentClass="text-brass-300"
+            accentClass="text-peacock-300"
             className="display-soft mt-8 max-w-4xl text-6xl text-ivory-50"
           />
           <Reveal delay={0.35}>

@@ -85,7 +85,7 @@ export function NavSheet() {
               href={item.href}
               className={cn(
                 "block rounded-card px-4 py-3 text-lg transition-colors hover:bg-ivory-50/5",
-                pathname === item.href ? "text-brass-300" : "text-ivory-100",
+                pathname === item.href ? "text-peacock-300" : "text-ivory-100",
               )}
             >
               {item.label}

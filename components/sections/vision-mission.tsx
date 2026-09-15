@@ -11,7 +11,7 @@ export function VisionMission() {
           <Eyebrow onDark>{vision.eyebrow}</Eyebrow>
           <span
             aria-hidden="true"
-            className="mt-8 block font-display text-8xl leading-none text-brass-400/40"
+            className="mt-8 block font-display text-8xl leading-none text-peacock-400/40"
           >
             “
           </span>
@@ -24,7 +24,7 @@ export function VisionMission() {
           <Eyebrow>{mission.eyebrow}</Eyebrow>
           <span
             aria-hidden="true"
-            className="mt-8 block font-display text-8xl leading-none text-brass-500/40"
+            className="mt-8 block font-display text-8xl leading-none text-peacock-500/40"
           >
             “
           </span>

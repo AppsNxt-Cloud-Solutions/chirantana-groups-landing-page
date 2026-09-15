@@ -19,7 +19,7 @@ export default function ContactPage() {
       <section className="grain relative overflow-hidden bg-obsidian-900 text-ivory-50">
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 bg-[radial-gradient(120%_90%_at_18%_8%,var(--color-brass-700),transparent_62%)] opacity-60"
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(120%_90%_at_18%_8%,var(--color-peacock-700),transparent_62%)] opacity-60"
         />
         <Container className="relative pt-32 pb-16 md:pt-40 md:pb-24">
           <Reveal direction="none">

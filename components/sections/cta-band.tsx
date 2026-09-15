@@ -6,6 +6,7 @@ import { Container, Eyebrow, Section } from "@/components/ui/section";
 import { closing } from "@/content/group";
 import { type Vertical, verticalContact } from "@/content/verticals";
 import { site, whatsappLink } from "@/lib/site";
+import { cn } from "@/lib/utils";
 
 /**
  * Closing band. On a vertical page pass that vertical so the CTAs reach the
@@ -22,10 +23,18 @@ export function CtaBand({ vertical }: { vertical?: Vertical } = {}) {
       };
 
   return (
-    <Section tone="light" size="lg" className="overflow-hidden">
+    <Section tone="light" size="lg" accent={vertical?.accent} className="overflow-hidden">
+      {/* The group closes in the mark's lotus; a vertical closes in its own
+          accent. Both classes are written out in full — Tailwind v4 generates
+          nothing it cannot see as a literal string. */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-[radial-gradient(60%_80%_at_50%_100%,var(--color-brass-200),transparent_70%)] opacity-70"
+        className={cn(
+          "pointer-events-none absolute inset-x-0 bottom-0 h-1/2 opacity-60",
+          vertical
+            ? "bg-[radial-gradient(60%_80%_at_50%_100%,var(--v-100),transparent_70%)]"
+            : "bg-[radial-gradient(60%_80%_at_50%_100%,var(--color-lotus-100),transparent_70%)]",
+        )}
       />
       <Container className="relative">
         <Reveal>
@@ -39,7 +48,9 @@ export function CtaBand({ vertical }: { vertical?: Vertical } = {}) {
               <p
                 className={
                   i === closing.lines.length - 1
-                    ? "display-soft font-display text-6xl text-brass-600"
+                    ? vertical
+                      ? "display-soft font-display text-6xl text-accent-700"
+                      : "display-soft font-display text-6xl text-lotus-700"
                     : "display-soft font-display text-6xl text-obsidian-900"
                 }
               >

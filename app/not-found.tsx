@@ -28,7 +28,7 @@ export default function NotFound() {
             <ButtonLink
               href="/"
               size="lg"
-              className="bg-ivory-50 text-obsidian-900 hover:bg-brass-300"
+              className="bg-ivory-50 text-obsidian-900 hover:bg-peacock-300"
             >
               Back to home
             </ButtonLink>
